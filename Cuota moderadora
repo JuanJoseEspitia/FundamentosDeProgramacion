@@ -1,0 +1,28 @@
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese su salario sin puntos ni comas: ");
+            double Salario = double.Parse(Console.ReadLine());
+
+            if (Salario < 1817052)
+            {
+                Console.WriteLine("Tarifa A");
+                Console.WriteLine("Cuota moderada de $3.500");
+
+            }
+            else if (1817052 <= Salario && Salario <= 4542630)
+            {
+                Console.WriteLine("Tarifa B");
+                Console.WriteLine("Cuota Moderada de $14.000");
+            }
+            else if ( Salario > 4542630)
+            {
+                Console.WriteLine("Tarifa c");
+                Console.WriteLine("Cuota Moderada de $36.800");
+            }
+
+                    
+        }
+    }
+}
