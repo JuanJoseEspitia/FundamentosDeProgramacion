@@ -1,0 +1,169 @@
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Ingrese su salario sin puntos ni comas: ");
+
+            int salario = int.Parse(Console.ReadLine());
+
+            Console.Write("Ingrese el tipo de contrato que posea: 1 si es dependiente o 2 Si es independiente: ");
+
+            int contrato = int.Parse(Console.ReadLine());
+
+            double Base = salario * 0.4;
+            int SMMLV = 877803;
+
+            double pension2;
+            double eps2;
+
+            double pension1;
+
+            double eps1;
+
+
+
+            if (contrato == 2)
+            {
+
+                 pension2 = Base * 0.16;
+                 eps2 = Base * 0.125;
+
+
+                Console.Write("Ingrese la clase de riesgo: ");
+                int Riesgo = int.Parse(Console.ReadLine());
+
+
+                double arl = 0;
+                
+
+                if (Base < SMMLV)
+                {
+                    Base = SMMLV;
+                    
+
+                    pension2= Base * 0.16;
+
+
+                     eps2 = Base * 0.125;
+
+                    if (Riesgo == 1)
+                    {
+                        arl = Base * 0.00522;
+                    }
+                    else if (Riesgo == 2)
+                    {
+                        arl = Base * 0.01044;
+                    }
+                    else if (Riesgo == 3)
+                    {
+                        arl = Base * 0.02436;
+                    }
+                    else if (Riesgo == 4)
+                    {
+                        arl = Base * 0.0435;
+                    }
+                    else if (Riesgo == 5)
+                    {
+                        arl = Base * 0.0696;
+                    }
+                    double real = salario - pension2 - eps2 - arl;
+
+                    double realanual = real * 12;
+
+                    Console.WriteLine("Su pensión resta un total de; " + pension2);
+                    Console.WriteLine("Su EPS resta un total de: " + eps2);
+
+                   
+
+                    Console.WriteLine("Su salario real mensual es de: " + real);
+                    Console.WriteLine("Su salario real anual es de: " + realanual);
+                }
+
+                else
+                {
+                    if (Riesgo == 1)
+                    {
+                        arl = Base * 0.00522;
+                    }
+                    else if (Riesgo == 2)
+                    {
+                        arl = Base * 0.01044;
+                    }
+                    else if (Riesgo == 3)
+                    {
+                        arl = Base * 0.02436;
+                    }
+                    else if (Riesgo == 4)
+                    {
+                        arl = Base * 0.0435;
+                    }
+                    else if (Riesgo == 5)
+                    {
+                        arl = Base * 0.0696;
+
+                    }
+                    double real = salario - pension2 - eps2 - arl;
+
+                    double realanual = real * 12;
+
+                    Console.WriteLine("Su pensión resta un total de; " + pension2);
+                    Console.WriteLine("Su EPS resta un total de: " + eps2);
+
+                    
+
+                    Console.WriteLine("Su salario real mensual es de: " + real);
+                    Console.WriteLine("Su salario real anual es de: " + realanual);
+                }
+                
+                
+
+            }
+            else if (contrato == 1)
+
+                pension1 = Base * 0.04;
+
+                eps1 = Base * 0.04;
+            {
+                if (Base < SMMLV)
+                {
+
+                    Base = SMMLV;
+
+                    pension1 = Base * 0.04;
+
+                    eps1 = Base * 0.04;
+
+
+                    double rial = salario - pension1 - eps1;
+                    double rialanual = (rial * 12) + salario;
+
+                    Console.WriteLine("Su pensión resta un total de: " + pension1);
+                    Console.WriteLine("Su EPS resta un total de: " + eps1);
+                    Console.WriteLine("No le resta el ARL.");
+
+                    Console.WriteLine("Su salario real mensual es de: " + rial);
+                    Console.WriteLine("Su salario real anual es de: " + rialanual);
+                }
+                
+                else
+                {
+                    pension1 = Base * 0.04;
+
+                    eps1 = Base * 0.04;
+
+                    double rial = salario - pension1 - eps1;
+                    double rialanual = (rial * 12) + salario;
+
+                    Console.WriteLine("Su pensión resta un total de: " + pension1);
+                    Console.WriteLine("Su EPS resta un total de: " + eps1);
+                    Console.WriteLine("No le resta el ARL.");
+
+                    Console.WriteLine("Su salario real mensual es de: " + rial);
+                    Console.WriteLine("Su salario real anual es de: " + rialanual);
+                }
+            }
+            
+            
+        }
+    }
