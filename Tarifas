@@ -1,0 +1,27 @@
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Ingrese su salario sin puntos ni comas: ");
+            double Salario = double.Parse(Console.ReadLine());
+
+            if (Salario < 1817052)
+            {
+                Console.WriteLine("Tarifa A");
+            }
+            else if (1817052 <= Salario && Salario <= 3634104)
+            {
+                Console.WriteLine("Tarifa B");
+            }
+            else if(Salario > 3634104)
+            {
+                Console.WriteLine("tarifa C");
+            }
+           
+           
+                    
+                   
+           
+        }
+    }
