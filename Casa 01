@@ -1,0 +1,66 @@
+
+            Random valor = new Random();
+            string continuar = "s";
+            int dado1 = valor.Next(1, 7);
+            int dado2 = valor.Next(1, 7);
+            
+            int valortotal = dado1 + dado2;
+            Console.WriteLine("El valor del dado 1 es: " + dado1);
+            Console.WriteLine("El valor del dado 2 es: " + dado2);
+            Console.WriteLine("El valor total de sus dados es: " + valortotal);
+            Console.WriteLine("Si desea seguir juagndo presione s");
+            continuar = Console.ReadLine();
+
+            int contador = 0;
+            int turno = 0;
+            int Dobles = 0;
+
+            while (continuar == "s" && (dado1 + dado2) != 2 && valortotal < 100)
+            {
+                
+                dado1 = valor.Next(1, 7);
+                dado2 = valor.Next(1, 7);
+                valortotal += dado1 + dado2;
+                Console.WriteLine("El valor del dado 1 es: " + dado1);
+                Console.WriteLine("El valor del dado 2 es: " + dado2);
+
+                turno++;
+
+                double porcentajes = (100 * contador) / turno;
+                
+                if (dado1 == dado2)
+                {
+                    Dobles++;
+                }
+                if (dado1 + dado2 > 6)
+                {
+                    contador++;
+                }
+
+                if (valortotal > 99 || Dobles > 2)
+                {
+                    Console.WriteLine("El valor total es: " + valortotal);
+                    Console.WriteLine("ganaste pah");
+                    Console.WriteLine("El porcentaje de rondas en donde la suma de los dados salió mayor a seis es de: " + porcentajes);
+                }
+
+                else if ((dado1 + dado2) != 2)
+                {
+                    Console.WriteLine("El total que lleva es: " + valortotal);
+                    Console.Write("Si desea seguir juagndo presione s. si no, presione n.: ");
+                    continuar = Console.ReadLine();
+                }
+               
+                else 
+                {
+                    Console.WriteLine("El porcentaje de rondas en donde la suma de los dados salió mayor a seis es de: " + porcentajes);
+                    Console.WriteLine("Perdites pah");
+                }
+
+            }
+            if (continuar != "s")
+            {
+                Console.WriteLine("te retiraste pah");
+            }
+
+            
