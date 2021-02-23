@@ -1,0 +1,23 @@
+static void Main(string[] args)
+        {
+
+            double euler = 0;
+
+            
+
+            Console.WriteLine("Ingrese x La potecia a la que se elevará euler");
+            double x = double.Parse(Console.ReadLine());
+            int n = 100;
+            
+            for (int i = 0; i < n; i++)
+            {
+                euler += Math.Pow(x, i) / Factorial(i);
+            }
+            Console.WriteLine("la respuesta es: " + euler);
+
+        }
+        static double Factorial(double valor)
+        {
+            if (valor <= 1) return 1;
+            return valor * Factorial(valor - 1);
+        }
