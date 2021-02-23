@@ -1,0 +1,86 @@
+static void Main(string[] args)
+        {
+            int carta = 0;
+            
+            Console.WriteLine("Ingrese un número de jugadores. Mínimo 2 jugadores, máximo 5");
+            int jugadores = int.Parse(Console.ReadLine());
+            int ContadorJugadores = 0;
+            int maximo = 6;
+            int minimo = 1;
+            int totalvalorcartas = 0;
+            Random valor = new Random();
+            String continuar = "s";
+            int carta1 = 0;
+            int carta2 = 0;
+            int ganador = 0;
+           
+            int IndiceGanador = 0;
+            
+            while (jugadores <= minimo || jugadores >= maximo)
+            {
+                Console.WriteLine("Cantidad de juagdores no válida, vuelva a ingresar");
+                jugadores = int.Parse(Console.ReadLine());
+            }
+
+            while ( ContadorJugadores < jugadores && jugadores < maximo && jugadores > minimo )
+            {
+                Console.WriteLine("Bienvenido jugador: " + (ContadorJugadores + 1));
+
+                carta1 = valor.Next(1, 11);
+                carta2 = valor.Next(1, 11);
+                totalvalorcartas = carta1 + carta2;
+
+                Console.WriteLine("Su carta 1 es:" + carta1);
+                Console.WriteLine("Su carta 2 es: " + carta2);
+                Console.WriteLine("El total de sus cartas: " + totalvalorcartas);
+                Console.WriteLine("Si desea continuar presione: s. si no presione n.");
+                continuar = Console.ReadLine();
+                
+
+                while (continuar == "s" && totalvalorcartas < 22)
+                {
+
+                    carta = valor.Next(1, 10);
+                    Console.WriteLine("El valor de sus cartas es: " + carta);
+
+                    totalvalorcartas += carta;
+
+
+                    if (totalvalorcartas > 21)
+                    {
+                        Console.WriteLine("Perdiste");
+                    }
+                    else
+                    {
+                        Console.WriteLine("El total de sus cartas: " + totalvalorcartas);
+                        Console.Write("Si desea seguir jugando presione: s. si no: n");
+                        continuar = Console.ReadLine();
+                    }
+                }
+                if (continuar != "s")
+                {
+                    Console.WriteLine("Se ha retirado con: " + totalvalorcartas);
+                    if (totalvalorcartas > ganador)
+                    {
+                        ganador = totalvalorcartas;
+                        IndiceGanador = ContadorJugadores;
+                        
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ha sido eliminado con. " + totalvalorcartas);
+                }
+
+                ContadorJugadores++;
+
+            }
+
+            Console.WriteLine("El ganador es: " + (IndiceGanador + 1));
+
+
+
+
+
+        }
+    }
