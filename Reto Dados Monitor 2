@@ -1,0 +1,84 @@
+
+            Random valor = new Random();
+            int dado = 0;
+            int vidas = 3;
+            int turnos = 1;
+            int valortotal = dado;
+            string continuar = "s";
+            int dado2 = 0;
+            
+
+
+            dado = valor.Next(1, 7);
+            valortotal += dado;
+            Console.WriteLine("El valor de su dado es: " + dado);
+            Console.WriteLine("El valor total que lleva es: " + valortotal);
+            Console.WriteLine("vidas: " + vidas);
+            Console.WriteLine("Si desea continuar presione s");
+            continuar = Console.ReadLine();
+
+            while (continuar == "s" && valortotal < 100 && vidas > 0 )
+            {
+                
+                turnos++;
+                dado = valor.Next(1, 7);
+                
+                Console.WriteLine("El valor de su dado es: " + dado);
+                if (turnos % 3 == 0)
+                {
+
+                    dado2 = valor.Next(1, 7);
+                    Console.WriteLine("El valor del dado extra es: " + dado2);
+
+                    if (dado == dado2)
+                    {
+                        vidas++;
+                    }
+                    valortotal += dado + dado2;
+                }
+                else
+                {
+                    valortotal += dado;
+                }
+                
+                Console.WriteLine("El valor total que lleva es: " + valortotal);
+                
+              
+                if (turnos % 2 == 0 )
+                {
+                    vidas -= 1;
+                }
+                Console.WriteLine("vidas: " + vidas);
+
+                if (vidas == 0)
+                {
+                    break;
+                }
+                else if (valortotal > 99)
+                {
+                    break;
+                }
+
+                
+
+                Console.WriteLine("Si desea continuar presione s");
+                continuar = Console.ReadLine();
+
+            }
+
+            if (vidas == 0)
+            {
+                Console.WriteLine("Papi, perdió.");
+            }
+            else if (continuar != "s")
+            {
+                Console.WriteLine("O se retiró o presionó la tecla equivocada pai");
+            }
+            else if (valortotal >= 100)
+            {
+                Console.WriteLine("Ganates");
+            }
+            
+            
+            
+            Link del video: https://www.youtube.com/watch?v=7NuVk9zOsf8&ab_channel=Espeethia
