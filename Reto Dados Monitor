@@ -1,0 +1,102 @@
+Random valor = new Random();
+            int dado = valor.Next(1, 7);
+            int valortotal = dado;
+            string continuar = "s";
+            Console.WriteLine("el valor de su dado es de: " + dado);
+            Console.WriteLine("El valor total que lleva es de: " + valortotal);
+            Console.WriteLine("Si desea continua prsione s. de lo contrario presiones n.");
+            continuar = Console.ReadLine();
+            int vidas = 3;
+            int contadorunos = 0;
+            int ContadorSeis = 0;
+            
+            string dadoesp = "d";
+            int Dadoesp = 2;
+            
+            while ( continuar == "s" && valortotal < 100 && vidas > 0)
+            {
+                Console.WriteLine("Si desea continua prsione s. de lo contrario presiones n.");
+                continuar = Console.ReadLine();
+
+                if ( Dadoesp > 0)
+                {
+                    Console.WriteLine("Número de dados especiales:  " + Dadoesp + " " + "si desea usarlo pulse d. si no presiones s nuevamente ");
+                    dadoesp = Console.ReadLine();
+
+                    if (dadoesp == "d") 
+                    {
+
+                        dado = valor.Next(1, 13);
+                        Console.WriteLine("Valor del dado especial: " + dado);
+                        Dadoesp -= 1;
+                    }
+
+                }
+                else if (dadoesp != "d")
+                {
+                    dado = valor.Next(1, 7);
+                    Console.WriteLine("el valor de su dado es de: " + dado);
+
+                }
+                
+                valortotal += dado;
+
+
+                Console.WriteLine("El valor total que lleva es de: " + valortotal);
+                
+                if (dado == 6)
+                {
+                    ContadorSeis++;
+
+                    if (ContadorSeis == 2 && vidas < 3)
+                    {
+                        vidas++;
+                        Console.WriteLine("Obtuviste una vida por sacar dos Seises seguidas");
+                        Console.WriteLine("vidas: " + vidas);
+                    }
+                    else
+                    {
+                        ContadorSeis = 0;
+                    }
+                }
+
+                if (dado == 1)
+                {
+                    contadorunos++;
+
+                    if (contadorunos % 2 == 0)
+                    {
+                        vidas -= 1;
+                        Console.WriteLine("Ha perdido una vida. Número de vidas restantes: " + vidas);
+                        Console.WriteLine("Como sacaste dos unos se te restan 10 puntos");
+                        valortotal -= 10;
+                        Console.WriteLine("El valor total que lleva es de: " + valortotal);
+                    }
+                    if (vidas == 0)
+                    {
+                        break;
+                    }
+                    else if (valortotal > 99)
+                    {
+                        break;
+                    }
+
+                }
+
+                
+       
+            }
+            if (continuar != "s")
+            {
+                Console.WriteLine("Te retiraste");
+            }
+            else if (vidas ==  0)
+            {
+                Console.WriteLine("Perdites. Llegaste a 0 vidas");
+            }
+            else if (valortotal >= 100)
+            {
+                Console.WriteLine("Ganaste");
+            }
+            
+            Link del video: https://www.youtube.com/watch?v=3UbMYNUzGgQ&ab_channel=Espeethia
